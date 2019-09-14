@@ -52,7 +52,7 @@ Step 2. Create an HTML file in the same folder as above, with the following mini
 
 </html>
 
-Step 3. (optional) If you want, edit the first lines of [ebook.js](ebook.js) to customize the configuration messages.
+Step 3. (optional) If you want, edit the first lines of ebook.js to customize the configuration messages.
 
 Step 4. Done!
 ```
