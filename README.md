@@ -1,6 +1,8 @@
 # mirea.js
 A (MI)nimalist (REA)der for web content
 
+See a live example [here](http://htmlpreview.github.io/?https://github.com/dlucredio/mirea.js/blob/master/sample.html)!
+
 ## Main Features
 
 * Customizable themes, font size, font type, margins and spacing
