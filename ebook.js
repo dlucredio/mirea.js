@@ -3,7 +3,7 @@ const msg_yes = 'Yes';
 const msg_no = 'No';
 const msg_theme = 'Theme';
 const msg_theme_light1 = 'Light 1';
-const msg_theme_light2 = 'Light 1';
+const msg_theme_light2 = 'Light 2';
 const msg_theme_sepia1 = 'Sepia 1';
 const msg_theme_sepia2 = 'Sepia 2';
 const msg_theme_dark1 = 'Dark 1';
@@ -273,7 +273,7 @@ var scrollStop = function (callback) {
 
 scrollStop(function () {
     if (typeof (Storage) !== "undefined") {
-        localStorage.pageYOffset = window.pageYOffset;
+        localStorage.setItem(window.location.pathname+":pageYOffset", window.pageYOffset);
     }
 });
 
@@ -285,19 +285,19 @@ function closeDialog() {
 
 function restoreScrollPosition() {
     if (typeof (Storage) !== "undefined") {
-        window.scrollTo(0, localStorage.pageYOffset);
+        window.scrollTo(0, localStorage.getItem(window.location.pathname+":pageYOffset"));
     }
     closeDialog();
 }
 
 function loadConfig() {
     if (typeof (Storage) !== "undefined") {
-        changeTheme(localStorage.fg, localStorage.bg);
-        changeFont(localStorage.font, localStorage.fontFallback);
-        changeSize(localStorage.size);
-        changeMargin(localStorage.margin);
-        changeSpacing(localStorage.spacing);
-        if (localStorage.getItem("pageYOffset") !== null) {
+        changeTheme(localStorage.getItem(window.location.pathname+":fg"), localStorage.getItem(window.location.pathname+":bg"));
+        changeFont(localStorage.getItem(window.location.pathname+":font"), localStorage.getItem(window.location.pathname+":fontFallback"));
+        changeSize(localStorage.getItem(window.location.pathname+":size"));
+        changeMargin(localStorage.getItem(window.location.pathname+":margin"));
+        changeSpacing(localStorage.getItem(window.location.pathname+":spacing"));
+        if (localStorage.getItem(window.location.pathname+":pageYOffset") !== null) {
             document.getElementsByTagName("ebook-reader-navbar")[0]._shadowRoot.getElementById("dialog").style.display = "block";
         }
 
@@ -308,26 +308,25 @@ function changeTheme(fg, bg) {
     document.body.style.color = fg;
     document.body.style.backgroundColor = bg;
     if (typeof (Storage) !== "undefined") {
-        localStorage.fg = fg;
-        localStorage.bg = bg;
+        localStorage.setItem(window.location.pathname+":fg", fg);
+        localStorage.setItem(window.location.pathname+":bg", bg);
     }
 }
 
 function changeFont(font, fontFallback) {
     let ff = "'" + font + "', " + fontFallback;
-    console.log(ff);
 
     document.getElementById("content").style.fontFamily = ff;
     if (typeof (Storage) !== "undefined") {
-        localStorage.font = font;
-        localStorage.fontFallback = fontFallback;
+        localStorage.setItem(window.location.pathname+":font", font);
+        localStorage.setItem(window.location.pathname+":fontFallback", fontFallback);
     }
 }
 
 function changeSize(size) {
     document.getElementById("content").style.fontSize = size;
     if (typeof (Storage) !== "undefined") {
-        localStorage.size = size;
+        localStorage.setItem(window.location.pathname+":size", size);
     }
 }
 
@@ -335,13 +334,13 @@ function changeMargin(margin) {
     document.getElementById("content").style.marginLeft = margin;
     document.getElementById("content").style.marginRight = margin;
     if (typeof (Storage) !== "undefined") {
-        localStorage.margin = margin;
+        localStorage.setItem(window.location.pathname+":margin", margin);
     }
 }
 
 function changeSpacing(spacing) {
     document.getElementById("content").style.lineHeight = spacing;
     if (typeof (Storage) !== "undefined") {
-        localStorage.spacing = spacing;
+        localStorage.setItem(window.location.pathname+":spacing", spacing);
     }
 }

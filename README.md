@@ -1,11 +1,14 @@
 # mirea.js
-A (MI)nimalist (REA)der for web content
+A (MI)nimalist (REA)der for web content.
 
-See a live example [here](http://htmlpreview.github.io/?https://github.com/dlucredio/mirea.js/blob/master/sample.html)!
+The reader has similar functions to many e-book readers, such as [Kindle](https://read.amazon.com/) and [Neat Reader](https://www.neat-reader.com/), but can be used with a normal HTML content, and not ebook format. This makes it very simple for writers to publish their content on the web.
+
+See a live example [here](http://dlucredio.com/contos/umMonumentoNoDeserto.html) (from my personal website - it's in portuguese, but you can get the idea)!
 
 ## Main Features
 
 * Customizable themes, font size, font type, margins and spacing
+* Easy to customize messages for any language
 * Simple responsive design
 * Remembers last used configuration and reading position (using HTML Web Storage)
 * Easily integrates into any HTML content (using Web Components, CSS and JavaScript)
@@ -48,6 +51,10 @@ Step 2. Create an HTML file in the same folder as above, with the following mini
 </body>
 
 </html>
+
+Step 3. (optional) If you want, edit the first lines of [ebook.js](ebook.js) to customize the configuration messages.
+
+Step 4. Done!
 ```
 
 ## Authors
