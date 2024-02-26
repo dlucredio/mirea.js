@@ -1,29 +1,29 @@
-const msg_continue_reading = 'Do you wish to continue reading from where you stopped?';
-const msg_yes = 'Yes';
-const msg_no = 'No';
-const msg_theme = 'Theme';
-const msg_theme_light1 = 'Light 1';
-const msg_theme_light2 = 'Light 2';
+const msg_continue_reading = 'Você quer continuar a leitura de onde parou?';
+const msg_yes = 'Sim';
+const msg_no = 'Não';
+const msg_theme = 'Tema';
+const msg_theme_light1 = 'Claro 1';
+const msg_theme_light2 = 'Claro 2';
 const msg_theme_sepia1 = 'Sepia 1';
 const msg_theme_sepia2 = 'Sepia 2';
-const msg_theme_dark1 = 'Dark 1';
-const msg_theme_dark2 = 'Dark 2';
-const msg_theme_dark3 = 'Dark 3';
-const msg_font_type = 'Font type';
-const msg_font_size = 'Font size';
-const msg_very_small = 'Very small';
-const msg_small = 'Small';
-const msg_medium = 'Medium';
-const msg_large = 'Large';
-const msg_very_large = 'Very large';
-const msg_huge = 'Huge';
-const msg_margins = 'Margins';
-const msg_no_margins = 'No margins';
-const msg_small_margins = 'Small';
-const msg_medium_margins = 'Medium';
-const msg_large_margins = 'Large';
-const msg_huge_margins = 'Huge';
-const msg_spacing = 'Spacing';
+const msg_theme_dark1 = 'Escuro 1';
+const msg_theme_dark2 = 'Escuro 2';
+const msg_theme_dark3 = 'Escuro 3';
+const msg_font_type = 'Tipo da fonte';
+const msg_font_size = 'Tamanho';
+const msg_very_small = 'Muito pequena';
+const msg_small = 'Pequena';
+const msg_medium = 'Média';
+const msg_large = 'Grande';
+const msg_very_large = 'Muito Grande';
+const msg_huge = 'Enorme';
+const msg_margins = 'Margens';
+const msg_no_margins = 'Sem margens';
+const msg_small_margins = 'Pequenas';
+const msg_medium_margins = 'Médias';
+const msg_large_margins = 'Grandes';
+const msg_huge_margins = 'Enormes';
+const msg_spacing = 'Espaçamento';
 
 class EbookReaderNavBar extends HTMLElement {
     constructor() {
@@ -55,6 +55,7 @@ class EbookReaderNavBar extends HTMLElement {
             overflow: auto;
             background-color: rgb(0, 0, 0);
             background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
         }
 
         .modal-close-dialog {
@@ -71,24 +72,33 @@ class EbookReaderNavBar extends HTMLElement {
         }
 
         nav {
-            position: -webkit-sticky;
-            position: sticky;
+            position: fixed;
             left: 0;
             top: 0;
             width: 100%;
-            padding: 1rem;
-            background-color: #464646;
+            background-color: rgba(0, 0, 0, 0.4);
             color: white;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            padding: 10px;
         }
 
         nav .row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
         nav .brand {
             flex: 1;
             font-size: 1.2rem;
+        }
+
+        nav label {
+            height: auto;
         }
 
         .settings {
@@ -117,7 +127,7 @@ class EbookReaderNavBar extends HTMLElement {
 
         div.options-content {
             width: 100%;
-            max-height: 30vh;
+            max-height: 100vh;
             overflow-y: auto;
             margin: 0.5rem 0pt;
             border: 1px solid white;
